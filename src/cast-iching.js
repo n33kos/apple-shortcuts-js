@@ -5,16 +5,13 @@ const {
 } = require('@joshfarrant/shortcuts-js');
 const {
   getContentsOfURL,
-  showResult,
   URL,
   getTextFromInput,
   getDictionaryFromInput,
   setVariable,
-  text,
   getVariable,
   getDictionaryValue,
-  addToVariable,
-  nothing,
+  text,
 } = require('@joshfarrant/shortcuts-js/actions');
 
 const chineseTitle = actionOutput('chineseTitle');
@@ -50,7 +47,8 @@ const actions = [
   getDictionaryValue({
     get: 'Value',
     key: 'chineseTitle',
-  }, chineseTitle),
+  }),
+  getTextFromInput({}, chineseTitle),
 
   // Number
   getVariable({
@@ -59,7 +57,8 @@ const actions = [
   getDictionaryValue({
     get: 'Value',
     key: 'number',
-  }, number),
+  }),
+  getTextFromInput({}, number),
 
   // Title
   getVariable({
@@ -68,7 +67,8 @@ const actions = [
   getDictionaryValue({
     get: 'Value',
     key: 'title',
-  }, title),
+  }),
+  getTextFromInput({}, title),
 
   // Upper Trigram
   getVariable({
@@ -77,7 +77,8 @@ const actions = [
   getDictionaryValue({
     get: 'Value',
     key: 'upperTrigram',
-  }, upperTrigram),
+  }),
+  getTextFromInput({}, upperTrigram),
 
   // Lower Trigram
   getVariable({
@@ -86,7 +87,8 @@ const actions = [
   getDictionaryValue({
     get: 'Value',
     key: 'lowerTrigram',
-  }, lowerTrigram),
+  }),
+  getTextFromInput({}, lowerTrigram),
 
   // Image
   getVariable({
@@ -95,7 +97,8 @@ const actions = [
   getDictionaryValue({
     get: 'Value',
     key: 'image',
-  }, image),
+  }),
+  getTextFromInput({}, image),
 
   // Judgement
   getVariable({
@@ -104,7 +107,8 @@ const actions = [
   getDictionaryValue({
     get: 'Value',
     key: 'judgement',
-  }, judgement),
+  }),
+  getTextFromInput({}, judgement),
 
   // Lines
   getVariable({
@@ -113,13 +117,15 @@ const actions = [
   getDictionaryValue({
     get: 'Value',
     key: 'lines',
-  }, lines),
+  }),
+  getTextFromInput({}, lines),
 
-  nothing(),
-
-  // Show result
-  showResult({
-    text: withVariables`${chineseTitle}, ${number}, ${title} ${upperTrigram} above, ${lowerTrigram} below. ${image} ${judgement} ${lines}`,
+  // Output final text
+  text({
+    text: withVariables`
+      ${chineseTitle}, ${number}, ${title}.
+      ${upperTrigram} above, ${lowerTrigram} below.
+      ${image} ${judgement} ${lines}`,
   }),
 ];
 
