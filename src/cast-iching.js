@@ -123,9 +123,16 @@ const actions = [
   // Output final text
   text({
     text: withVariables`
-      ${chineseTitle}, ${number}, ${title}.
-      ${upperTrigram} above, ${lowerTrigram} below.
-      ${image} ${judgement} ${lines}`,
+${chineseTitle}, ${number}, ${title}.
+
+${upperTrigram} above, ${lowerTrigram} below.
+
+${image}
+
+${judgement}
+
+${lines}
+`,
   }),
 ];
 
