@@ -1,0 +1,16 @@
+{
+  "name": "apple-shortcuts",
+  "version": "1.0.0",
+  "description": "A collection of apple shortcuts implemented in shortcut-js",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@joshfarrant/shortcuts-js": "^0.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./index.js"
+  },
+  "author": "n33kos",
+  "license": "ISC"
+}
